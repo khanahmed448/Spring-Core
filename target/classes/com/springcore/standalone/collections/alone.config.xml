@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+    
+    <!-- utility schema is used for StandAlone collection Creation-->
+    
+    <!-- StandAlone List -->
+    <util:list list-class="java.util.LinkedList" id="mybestfriends">
+        <value>Ahmed</value>
+        <value>Arman</value>
+        <value>Afzal</value>
+        <value>Ali</value>
+    </util:list>
+    
+    <!-- StandAlone  Map-->
+    <util:map map-class="java.util.HashMap" id="fees">
+          <entry key="Spring" value="8000"/>
+          <entry key="Django" value="5000"/>
+          <entry key="Hibernate" value="2000"/>
+    </util:map>
+    
+    <!-- StandAlone Properties -->
+    <util:properties id="dbConfig">
+          <prop key="driver">SQL</prop>
+          <prop key="username">Ahmed</prop>
+          <prop key="password">Root</prop>
+     </util:properties>
+    
+	<bean class="com.springcore.standalone.collections.Person" name="Person">
+	   <property name="friend" ref="mybestfriends"/>
+	   <property name="feestructure" ref="fees"/>
+	   <property name="properties" ref="dbConfig"/>
+	</bean>
+</beans>
+
+
+
+	
